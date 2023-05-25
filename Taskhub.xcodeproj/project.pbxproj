@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		CA44DC802A1C51E500129C2E /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = CA44DC7F2A1C51E500129C2E /* GoogleSignIn */; };
 		CA44DC822A1C51E500129C2E /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CA44DC812A1C51E500129C2E /* GoogleSignInSwift */; };
+		CA745A852A1D8EF50037A52F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CA745A842A1D8EF40037A52F /* GoogleService-Info.plist */; };
 		CA82500D2A158389003481FF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA82500C2A158389003481FF /* Extensions.swift */; };
 		CAEE11502A1434DF00312E48 /* TaskhubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEE114F2A1434DF00312E48 /* TaskhubApp.swift */; };
 		CAEE11522A1434DF00312E48 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEE11512A1434DF00312E48 /* MainView.swift */; };
 		CAEE11542A1434E200312E48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAEE11532A1434E200312E48 /* Assets.xcassets */; };
 		CAEE11572A1434E200312E48 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAEE11562A1434E200312E48 /* Preview Assets.xcassets */; };
-		CAEE115E2A14350400312E48 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CAEE115D2A14350300312E48 /* GoogleService-Info.plist */; };
 		CAEE11612A14360F00312E48 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CAEE11602A14360F00312E48 /* FirebaseAuth */; };
 		CAEE11632A14360F00312E48 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CAEE11622A14360F00312E48 /* FirebaseFirestore */; };
 		CAEE11652A14360F00312E48 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CAEE11642A14360F00312E48 /* FirebaseFirestoreSwift */; };
@@ -39,13 +39,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA745A832A1D40040037A52F /* Taskhub.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Taskhub.entitlements; sourceTree = "<group>"; };
+		CA745A842A1D8EF40037A52F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CA82500C2A158389003481FF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CAEE114C2A1434DF00312E48 /* Taskhub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taskhub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAEE114F2A1434DF00312E48 /* TaskhubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskhubApp.swift; sourceTree = "<group>"; };
 		CAEE11512A1434DF00312E48 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		CAEE11532A1434E200312E48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CAEE11562A1434E200312E48 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		CAEE115D2A14350300312E48 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CAEE116A2A14378100312E48 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		CAEE116C2A14380300312E48 /* TasksListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListView.swift; sourceTree = "<group>"; };
 		CAEE116E2A14384200312E48 /* NewTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskView.swift; sourceTree = "<group>"; };
@@ -101,6 +102,7 @@
 		CAEE114E2A1434DF00312E48 /* Taskhub */ = {
 			isa = PBXGroup;
 			children = (
+				CA745A832A1D40040037A52F /* Taskhub.entitlements */,
 				CAEE11662A14362E00312E48 /* Other */,
 				CAEE11692A14365C00312E48 /* Models */,
 				CAEE11672A14364200312E48 /* ViewModels */,
@@ -121,7 +123,7 @@
 		CAEE11662A14362E00312E48 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				CAEE115D2A14350300312E48 /* GoogleService-Info.plist */,
+				CA745A842A1D8EF40037A52F /* GoogleService-Info.plist */,
 				CAEE11532A1434E200312E48 /* Assets.xcassets */,
 				CAEE114F2A1434DF00312E48 /* TaskhubApp.swift */,
 				CA82500C2A158389003481FF /* Extensions.swift */,
@@ -241,7 +243,7 @@
 				CAEE11572A1434E200312E48 /* Preview Assets.xcassets in Resources */,
 				CAEE11542A1434E200312E48 /* Assets.xcassets in Resources */,
 				CAFA95912A1769A4006D8E76 /* Launch Screen.storyboard in Resources */,
-				CAEE115E2A14350400312E48 /* GoogleService-Info.plist in Resources */,
+				CA745A852A1D8EF50037A52F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +399,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Taskhub/Taskhub.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Taskhub/Preview Content\"";
@@ -415,7 +418,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.zhangxijing.Taskhub;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.zhangxijing.Taskhub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -428,6 +431,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Taskhub/Taskhub.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Taskhub/Preview Content\"";
@@ -446,7 +450,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.zhangxijing.Taskhub;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.zhangxijing.Taskhub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

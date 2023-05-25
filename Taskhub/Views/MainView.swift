@@ -13,7 +13,8 @@ struct MainView: View {
     var body: some View {
         if viewModel.isSignedIn, !viewModel.currentUserId.isEmpty {
             // Signed in
-            accountView
+//            accountView
+            LoginView()
         } else {
             LoginView()
         }

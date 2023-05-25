@@ -13,7 +13,7 @@ struct RegisterView: View {
     var body: some View {
         VStack {
             // Header
-            HeaderView(title: "Register", subtitle: "Start organizing tasks", angle: -15, background: .orange)
+            HeaderView(title: "Register", subtitle: "Start organizing tasks", titleColor: .orange)
             
             // Register Form
             Form {
