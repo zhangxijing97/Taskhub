@@ -2,222 +2,51 @@
 //  LoginView.swift
 //  Taskhub
 //
-//  Created by 张熙景 on 5/16/23.
+//  Created by 张熙景 on 5/29/23.
 //
 
 import SwiftUI
-import AuthenticationServices
-import GoogleSignIn
-import GoogleSignInSwift
-import Firebase
+import FirebaseAuth
 
 struct LoginView: View {
-    @StateObject var viewModel = LoginViewViewModel()
-    @AppStorage("log_status") var log_status = false
-    @State var isRegisterViewShown = false
-//    @State var isClockViewShown = false
+    @EnvironmentObject var authStore: AuthStore
+    @ObservedObject var viewModel = LoginViewViewModel()
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                RoundedRectangle(cornerRadius: 0)
-                    .foregroundColor(Color(red: 0, green: 0.3294, blue: 0.3294))
-                
-                VStack {
+        ZStack(alignment: .top) {
+            Color.black
+            
+            VStack {
+                VStack(spacing: 25) {
+                    CustomInput(text: $viewModel.email, placeholder: "Email", isPassword: false)
+                    CustomInput(text: $viewModel.password, placeholder: "Password", isPassword: true)
                     
-                    //                    ZStack {
-                    Spacer()
-                    HeaderView(title: "Taskhub", subtitle: "Get things done",  titleColor: Color(red: 1, green: 0.7961, blue: 0.5412))
-                    Spacer()
-                    //                    }
+                    forgotPassword()
                     
-                    ZStack(alignment: .bottom) {
-                        RoundedRectangle(cornerRadius: 36, style: .continuous)
-                            .foregroundColor(.black)
-                            .opacity(0.5)
-                        
-                        VStack(spacing: 0) {
-                            
-                            // Continue with Apple Button
-//                            SignInWithAppleButton { (request) in
-//                                viewModel.nonce = viewModel.randomNonceString()
-//                                request.requestedScopes = [.email, .fullName]
-//                                request.nonce = viewModel.sha256(viewModel.nonce)
-//                            } onCompletion: { (result) in
-//                                // Error or success
-//                                switch result {
-//                                case.success(let user):
-//                                    print("Success")
-//                                    // Do Login With Firebase
-//                                    guard let credential = user.credential as? ASAuthorizationAppleIDCredential else {
-//                                        print("error with firebase")
-//                                        return
-//                                    }
-//                                    viewModel.authenticate(credential: credential)
-//                                case.failure(let error):
-//                                    print(error.localizedDescription)
-//                                }
-//                            }
-//                            .signInWithAppleButtonStyle(.white)
-                            
-                            // Continue with Apple Button
-                            
-//                                                        Button {
-//                                                        } label: {
-//                                                            ZStack {
-//                                                                RoundedRectangle(cornerRadius: 12, style: .continuous)
-//                                                                    .foregroundColor(.white)
-//                                                                HStack {
-//                                                                    Image(systemName: "applelogo")
-//                                                                    Text("Sign in with Apple")
-//                                                                        .font(.system(size: 19, weight: .medium))
-//                                                                }
-//                                                                .foregroundColor(Color.black)
-//                                                            }
-//                                                        }
-//                                                        .frame(height: 48)
-//                                                        .padding(.bottom, 12)
-
-                            
-                            // Continue with Apple Button
-                            Button {
-                            } label: {
-                                ZStack(alignment: .leading) {
-                                    RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                        .foregroundColor(.white)
-                                    HStack(spacing: 20) {
-                                        Image(systemName: "applelogo")
-                                            .font(.system(size: 24))
-                                            .frame(width: 22, height: 22)
-                                        Text("Continue with Apple")
-                                    }
-                                    .foregroundColor(Color.black)
-                                    .bold()
-                                    .padding(.leading, 60)
-                                }
-                            }
-                            .frame(height: 48)
-                            .overlay {
-                                SignInWithAppleButton { (request) in
-                                    viewModel.nonce = viewModel.randomNonceString()
-                                    request.requestedScopes = [.email, .fullName]
-                                    request.nonce = viewModel.sha256(viewModel.nonce)
-                                } onCompletion: { (result) in
-                                    // Error or success
-                                    switch result {
-                                    case.success(let user):
-                                        print("Success")
-                                        // Do Login With Firebase
-                                        guard let credential = user.credential as? ASAuthorizationAppleIDCredential else {
-                                            print("error with firebase")
-                                            return
-                                        }
-                                        viewModel.authenticate(credential: credential)
-                                    case.failure(let error):
-                                        print(error.localizedDescription)
-                                    }
-                                }
-                                .signInWithAppleButtonStyle(.white)
-                                .frame(height: 20)
-                                .blendMode(.overlay)
-                            }
-                            .clipped()
-                            .padding(.bottom, 12)
-                            
-                            // Continue with Google Button
-                            Button {
-                            } label: {
-                                ZStack(alignment: .leading) {
-                                    RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                        .foregroundColor(.white)
-                                    HStack(spacing: 20) {
-                                        Image("google")
-                                            .resizable()
-                                            .frame(width: 22, height: 22)
-                                        Text("Continue with Google")
-                                    }
-                                    .foregroundColor(Color.black)
-                                    .bold()
-                                    .padding(.leading, 60)
-                                }
-                            }
-                            .frame(height: 48)
-                            .overlay {
-                                SignInWithAppleButton { (request) in
-                                    viewModel.nonce = viewModel.randomNonceString()
-                                    request.requestedScopes = [.email, .fullName]
-                                    request.nonce = viewModel.sha256(viewModel.nonce)
-                                } onCompletion: { (result) in
-                                    // Error or success
-                                    switch result {
-                                    case.success(let user):
-                                        print("Success")
-                                        // Do Login With Firebase
-                                        guard let credential = user.credential as? ASAuthorizationAppleIDCredential else {
-                                            print("error with firebase")
-                                            return
-                                        }
-                                        viewModel.authenticate(credential: credential)
-                                    case.failure(let error):
-                                        print(error.localizedDescription)
-                                    }
-                                }
-                                .signInWithAppleButtonStyle(.white)
-                                .frame(height: 48)
-                                .blendMode(.overlay)
-                            }
-                            .clipped()
-                            .padding(.bottom, 12)
-                            
-                            // Sign up with Email
-                            Button {
-                                isRegisterViewShown = true
-                            } label: {
-                                ZStack(alignment: .leading) {
-                                    RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                        .foregroundColor(.white)
-                                    HStack(spacing: 20) {
-                                        Image(systemName: "envelope.fill")
-                                            .frame(width: 22, height: 22)
-                                        Text("Sign up with Email")
-                                    }
-                                    .foregroundColor(Color.black)
-                                    .bold()
-                                    .padding(.leading, 60)
-                                }
-                            }
-                            .frame(height: 48)
-                            .padding(.bottom, 12)
-                            
-                            // Log in
-                            Button {
-                            } label: {
-                                ZStack {
-                                    RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                        .foregroundColor(.black)
-                                    //                                        .foregroundColor(Color(red: 0.1725, green: 0.1725, blue: 0.1725))
-                                    HStack {
-                                        Text("Log in")
-                                    }
-                                    .foregroundColor(Color.white)
-                                    .bold()
-                                }
-                            }
-                            .frame(height: 48)
-                            
+                    CustomButton(title: "SIGN IN", isDisabled: viewModel.isButtonDisabled, isLoading: viewModel.isButtonLoading) {
+                        Task {
+                            await viewModel.loginWithEmailAndPassword(authStore: authStore)
                         }
-                        .padding(24)
-                        .padding(.bottom, 10)
                     }
-                    .frame(height: 286)
-                    
+                    .padding(.vertical)
                 }
             }
-            .statusBar(hidden: true)
-            .ignoresSafeArea(.all)
         }
-        .sheet(isPresented: $isRegisterViewShown) {
-            RegisterView()
+    }
+}
+
+struct forgotPassword: View {
+    var body: some View {
+        HStack {
+            Spacer()
+
+            Button {
+                print("I forgot my password :(")
+            } label: {
+                Text("Forgot your password?")
+                    .padding(.vertical)
+                    .foregroundColor(.white)
+            }
         }
     }
 }

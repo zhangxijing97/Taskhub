@@ -2,22 +2,19 @@
 //  TasksListView.swift
 //  Taskhub
 //
-//  Created by 张熙景 on 5/16/23.
+//  Created by 张熙景 on 5/29/23.
 //
 
-import FirebaseFirestoreSwift
 import SwiftUI
+import FirebaseFirestoreSwift
 
 struct TasksListView: View {
-    @StateObject var viewModel: TasksListViewViewModel
-    @FirestoreQuery var tasks: [Task]
-//    private let userId: String
+    @StateObject var viewModel: TasksListViewModel
+    @FirestoreQuery var tasks: [TaskItem]
     
     init(userId: String) {
-//        self.userId = userId
-        // users/<id>/tasks/<entries>
         self._tasks = FirestoreQuery(collectionPath: "users/\(userId)/tasks")
-        self._viewModel = StateObject(wrappedValue: TasksListViewViewModel(userId: userId))
+        self._viewModel = StateObject(wrappedValue: TasksListViewModel(userId: userId))
     }
     
     var body: some View {

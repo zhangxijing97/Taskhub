@@ -2,13 +2,13 @@
 //  NewTaskView.swift
 //  Taskhub
 //
-//  Created by 张熙景 on 5/16/23.
+//  Created by 张熙景 on 5/29/23.
 //
 
 import SwiftUI
 
 struct NewTaskView: View {
-    @StateObject var viewModel = NewTaskViewViewModel()
+    @StateObject var viewModel = NewTaskViewModel()
     @Binding var newTaskPresented: Bool
     
     var body: some View {

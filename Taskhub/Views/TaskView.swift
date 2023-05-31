@@ -2,14 +2,14 @@
 //  TaskView.swift
 //  Taskhub
 //
-//  Created by 张熙景 on 5/16/23.
+//  Created by 张熙景 on 5/29/23.
 //
 
 import SwiftUI
 
 struct TaskView: View {
-    @StateObject var viewModel = TaskViewViewModel()
-    let task: Task
+    @StateObject var viewModel = TaskViewModel()
+    let task: TaskItem
     
     var body: some View {
         HStack {
