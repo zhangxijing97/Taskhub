@@ -17,7 +17,7 @@ class TasksListViewModel: ObservableObject {
         self.userId = userId
     }
     
-    // Delete task from TasksList
+    // Delete task from TasksLsist
     func delete(id: String) {
         let db = Firestore.firestore()
         

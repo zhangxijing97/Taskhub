@@ -13,39 +13,36 @@ struct SignupView: View {
     
     var body: some View {
         ZStack(alignment: .top) {
-          Color.black.ignoresSafeArea()
-
-          VStack {
-            Text("Let's create your account")
-              .font(.title2)
-              .fontWeight(.bold)
-              .foregroundColor(.white)
-              .padding()
-              .padding(.vertical)
-
-            VStack(spacing: 25) {
-              CustomInput(text: $viewModel.email, placeholder: "Email", isPassword: false)
-              CustomInput(text: $viewModel.password, placeholder: "Password", isPassword: true)
-              CustomInput(text: $viewModel.passwordConfirmation, placeholder: "Confirm your password", isPassword: true)
+            Color.black
+                .statusBar(hidden: true)
+                .ignoresSafeArea()
+            
+            VStack(spacing: 0) {
+                SignupTransitionText()
+                
+                VStack(spacing: 48) {
+                    CustomInput(text: $viewModel.email, placeholder: "Email",   isPassword: false)
+                    CustomInput(text: $viewModel.password, placeholder: "Password", isPassword: true)
+                    CustomInput(text: $viewModel.passwordConfirmation, placeholder: "Confirm your password", isPassword: true)
+                }
+                
+                CustomButton(title: "Sign up", isDisabled: viewModel.isButtonDisabled, isLoading: viewModel.isButtonLoading) {
+                    Task {
+                        await viewModel.signup(authStore: self.authStore)
+                    }
+                }
+                .padding(.top, 48)
             }
-
-            CustomButton(title: "SIGN UP", isDisabled: viewModel.isButtonDisabled, isLoading: viewModel.isButtonLoading) {
-              Task {
-                await viewModel.signup(authStore: self.authStore)
-              }
-            }
-            .padding(.top, 30)
-          }
-          .padding(.horizontal)
+            .padding(24)
         }
         .alert(viewModel.alertTitle, isPresented: $viewModel.isAlertShowing) {
-          Button {
-            viewModel.dismissAlert()
-          } label: {
-            Text("Ok")
-          }
+            Button {
+                viewModel.dismissAlert()
+            } label: {
+                Text("Ok")
+            }
         } message: {
-          Text(viewModel.alertMessage)
+            Text(viewModel.alertMessage)
         }
     }
 }

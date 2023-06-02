@@ -19,10 +19,8 @@ struct ContentView: View {
                 } else {
                     if authStore.loginState == .signedOut {
                         AuthenticationView()
-                            .transition(.move(edge: .leading))
                 } else {
                     HomeView()
-                        .transition(.move(edge: .trailing))
                     }
                 }
             }

@@ -15,22 +15,34 @@ struct LoginView: View {
     var body: some View {
         ZStack(alignment: .top) {
             Color.black
+                .statusBar(hidden: true)
+                .ignoresSafeArea()
             
-            VStack {
-                VStack(spacing: 25) {
+            VStack(spacing: 0) {
+                LoginTransitionText()
+                
+                VStack(spacing: 48) {
                     CustomInput(text: $viewModel.email, placeholder: "Email", isPassword: false)
                     CustomInput(text: $viewModel.password, placeholder: "Password", isPassword: true)
-                    
-                    forgotPassword()
-                    
-                    CustomButton(title: "SIGN IN", isDisabled: viewModel.isButtonDisabled, isLoading: viewModel.isButtonLoading) {
-                        Task {
-                            await viewModel.loginWithEmailAndPassword(authStore: authStore)
-                        }
-                    }
-                    .padding(.vertical)
                 }
+                
+                CustomButton(title: "Log in", isDisabled: viewModel.isButtonDisabled, isLoading: viewModel.isButtonLoading) {
+                    Task {
+                        await viewModel.loginWithEmailAndPassword(authStore: authStore)
+                    }
+                }
+                .padding(.top, 48)
             }
+            .padding(24)
+        }
+        .alert(viewModel.alertTitle, isPresented: $viewModel.isAlertShowing) {
+            Button {
+                viewModel.dismissAlert()
+            } label: {
+                Text("Ok")
+            }
+        } message: {
+            Text(viewModel.alertMessage)
         }
     }
 }
@@ -47,6 +59,8 @@ struct forgotPassword: View {
                     .padding(.vertical)
                     .foregroundColor(.white)
             }
+            
+            Spacer()
         }
     }
 }

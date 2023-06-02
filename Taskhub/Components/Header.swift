@@ -39,6 +39,7 @@ struct Header: View {
                 sheetContent = "profile"
                 isSheetPresented = true
             } label: {
+                
                 if profileImage != nil {
                     AsyncImage(url: profileImage) { image in
                         image
@@ -59,6 +60,7 @@ struct Header: View {
                                 .foregroundColor(.white.opacity(0.5))
                         }
                 }
+                
             }
         }
         .padding(.horizontal)

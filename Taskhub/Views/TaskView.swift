@@ -15,7 +15,7 @@ struct TaskView: View {
         HStack {
             VStack(alignment: .leading) {
                 Text(task.title)
-                    .font(.title)
+                    .font(.title3)
                 
                 Text("\(Date(timeIntervalSince1970: task.dueDate).formatted(date: .abbreviated, time: .shortened))")
                     .font(.footnote)
@@ -29,6 +29,7 @@ struct TaskView: View {
                 viewModel.toggleIsDone(task: task)
             } label: {
                 Image(systemName: task.isDone ? "checkmark.circle.fill" : "circle")
+                    .foregroundColor(.black)
             }
         }
     }

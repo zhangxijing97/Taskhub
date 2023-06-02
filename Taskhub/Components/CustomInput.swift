@@ -25,9 +25,9 @@ struct CustomInput: View {
                     .foregroundColor(.white)
                     .padding()
                     .focused($isFocusedState)
-                    .frame(height: 60)
+                    .frame(height: 48)
                     .overlay(
-                        RoundedRectangle(cornerRadius: 10)
+                        RoundedRectangle(cornerRadius: 12, style: .continuous)
                             .stroke(isFocused ? .white : .white.opacity(0.5), lineWidth: 2)
                     )
                     .onChange(of: isFocusedState) { newFocusValue in
@@ -35,7 +35,6 @@ struct CustomInput: View {
                             isFocused = newFocusValue || !text.isEmpty
                         }
                     }
-                
                 
             } else {
                 TextField("", text: $text)
@@ -44,9 +43,9 @@ struct CustomInput: View {
                     .foregroundColor(.white)
                     .padding()
                     .focused($isFocusedState)
-                    .frame(height: 60)
+                    .frame(height: 48)
                     .overlay(
-                        RoundedRectangle(cornerRadius: 10)
+                        RoundedRectangle(cornerRadius: 12, style: .continuous)
                             .stroke(isFocused ? .white : .white.opacity(0.5), lineWidth: 2)
                     )
                     .onChange(of: isFocusedState) { newFocusValue in
@@ -55,6 +54,7 @@ struct CustomInput: View {
                         }
                     }
             }
+            
             HStack {
                 Text(placeholder)
                 .foregroundColor(isFocused ? .white : .white.opacity(0.5))
@@ -62,7 +62,7 @@ struct CustomInput: View {
                 .background(Color.black)
                 .padding(.horizontal)
                 .allowsHitTesting(false)
-                .offset(y: isFocused ? -30 : 0)
+                .offset(y: isFocused ? -24 : 0)
 
                 if isPassword {
                     Spacer()
@@ -70,13 +70,13 @@ struct CustomInput: View {
                         isShowingPassword.toggle()
                     } label: {
                         Image(systemName: isShowingPassword ? "eye.slash.fill" : "eye.fill")
-                            .font(.title2)
                             .foregroundColor(isFocused ? .white : .white.opacity(0.5))
                             .background(Color.black)
                             .padding(.horizontal)
                     }
                 }
             }
+            
         }
     }
 }
@@ -85,6 +85,7 @@ struct CustomInput_Previews: PreviewProvider {
     @State static var text = ""
 
     static var previews: some View {
-        CustomInput(text: $text, placeholder: "Email", isPassword: true)
+//        CustomInput(text: $text, placeholder: "Email", isPassword: true)
+        SignupView()
     }
 }

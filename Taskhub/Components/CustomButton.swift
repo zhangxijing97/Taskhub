@@ -18,24 +18,26 @@ struct CustomButton: View {
             onPress()
         } label: {
             if !isLoading {
-                Text(title.uppercased())
+                ZStack {
+                    RoundedRectangle(cornerRadius: 12, style: .continuous)
+                        .foregroundColor(Color(red: 0.1725, green: 0.1725, blue: 0.1804))
+                    HStack {
+                        Text(title)
+                    }
+                    .foregroundColor(Color.white)
                     .bold()
-                    .foregroundColor(isDisabled ? .white.opacity(0.5) : .white)
-                    .frame(maxWidth: .infinity, maxHeight: 70)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 50)
-                            .stroke(isDisabled ? .white.opacity(0.5) : .white, lineWidth: 2)
-                    )
+                }
             } else {
-                ProgressView()
-                    .scaleEffect(1.2)
-                    .frame(maxWidth: .infinity, maxHeight: 70)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 50)
-                            .stroke(isDisabled ? .white.opacity(0.5) : .white, lineWidth: 2)
-                    )
+                ZStack {
+                    RoundedRectangle(cornerRadius: 12, style: .continuous)
+                        .foregroundColor(Color(red: 0.1725, green: 0.1725, blue: 0.1804))
+                    ProgressView()
+                        .scaleEffect(1.2)
+                }
             }
         }
+        .frame(maxWidth: .infinity)
+        .frame(height: 48)
         .disabled(isDisabled)
         .animation(.easeInOut(duration: 0.5), value: isDisabled)
     }

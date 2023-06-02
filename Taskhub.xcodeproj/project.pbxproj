@@ -32,7 +32,6 @@
 		CA357C582A255A730019D5F2 /* CustomInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA357C572A255A730019D5F2 /* CustomInput.swift */; };
 		CA357C5A2A255AD60019D5F2 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA357C592A255AD60019D5F2 /* CustomButton.swift */; };
 		CA357C5C2A255AF20019D5F2 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA357C5B2A255AF20019D5F2 /* Header.swift */; };
-		CA357C5E2A255F990019D5F2 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA357C5D2A255F990019D5F2 /* HeaderView.swift */; };
 		CA357C602A255FAC0019D5F2 /* THButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA357C5F2A255FAC0019D5F2 /* THButton.swift */; };
 		CA357C622A2562130019D5F2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA357C612A2562130019D5F2 /* HomeView.swift */; };
 		CA357C652A2580650019D5F2 /* TaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA357C642A2580650019D5F2 /* TaskItem.swift */; };
@@ -44,6 +43,11 @@
 		CA357C732A2720830019D5F2 /* TasksListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA357C722A2720830019D5F2 /* TasksListViewModel.swift */; };
 		CA357C752A27213C0019D5F2 /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA357C742A27213C0019D5F2 /* TaskViewModel.swift */; };
 		CA357C772A27229B0019D5F2 /* NewTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA357C762A27229B0019D5F2 /* NewTaskViewModel.swift */; };
+		CA3998472A288544001FBB67 /* AuthTransitionText.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3998462A288544001FBB67 /* AuthTransitionText.swift */; };
+		CA3998492A292687001FBB67 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3998482A292687001FBB67 /* TimerModel.swift */; };
+		CA39984B2A29409A001FBB67 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA39984A2A29409A001FBB67 /* BackgroundView.swift */; };
+		CA39984D2A294AE8001FBB67 /* SignupTransitionText.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA39984C2A294AE8001FBB67 /* SignupTransitionText.swift */; };
+		CA39984F2A294CA2001FBB67 /* LoginTransitionText.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA39984E2A294CA2001FBB67 /* LoginTransitionText.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,7 +75,6 @@
 		CA357C572A255A730019D5F2 /* CustomInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInput.swift; sourceTree = "<group>"; };
 		CA357C592A255AD60019D5F2 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		CA357C5B2A255AF20019D5F2 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
-		CA357C5D2A255F990019D5F2 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		CA357C5F2A255FAC0019D5F2 /* THButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THButton.swift; sourceTree = "<group>"; };
 		CA357C612A2562130019D5F2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CA357C632A2565CA0019D5F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -82,6 +85,11 @@
 		CA357C722A2720830019D5F2 /* TasksListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListViewModel.swift; sourceTree = "<group>"; };
 		CA357C742A27213C0019D5F2 /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
 		CA357C762A27229B0019D5F2 /* NewTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewModel.swift; sourceTree = "<group>"; };
+		CA3998462A288544001FBB67 /* AuthTransitionText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTransitionText.swift; sourceTree = "<group>"; };
+		CA3998482A292687001FBB67 /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
+		CA39984A2A29409A001FBB67 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		CA39984C2A294AE8001FBB67 /* SignupTransitionText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupTransitionText.swift; sourceTree = "<group>"; };
+		CA39984E2A294CA2001FBB67 /* LoginTransitionText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTransitionText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +198,7 @@
 				CA357C722A2720830019D5F2 /* TasksListViewModel.swift */,
 				CA357C742A27213C0019D5F2 /* TaskViewModel.swift */,
 				CA357C762A27229B0019D5F2 /* NewTaskViewModel.swift */,
+				CA3998482A292687001FBB67 /* TimerModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -197,10 +206,13 @@
 		CA357C562A255A570019D5F2 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				CA3998462A288544001FBB67 /* AuthTransitionText.swift */,
+				CA39984C2A294AE8001FBB67 /* SignupTransitionText.swift */,
+				CA39984E2A294CA2001FBB67 /* LoginTransitionText.swift */,
+				CA39984A2A29409A001FBB67 /* BackgroundView.swift */,
 				CA357C572A255A730019D5F2 /* CustomInput.swift */,
 				CA357C592A255AD60019D5F2 /* CustomButton.swift */,
 				CA357C5B2A255AF20019D5F2 /* Header.swift */,
-				CA357C5D2A255F990019D5F2 /* HeaderView.swift */,
 				CA357C5F2A255FAC0019D5F2 /* THButton.swift */,
 			);
 			path = Components;
@@ -313,13 +325,15 @@
 				CA357C532A2557D60019D5F2 /* SignupViewModel.swift in Sources */,
 				CA357C432A2553C80019D5F2 /* ProfileView.swift in Sources */,
 				CA357C452A2555B80019D5F2 /* UserProfile.swift in Sources */,
+				CA39984B2A29409A001FBB67 /* BackgroundView.swift in Sources */,
 				CA357C3F2A2553AD0019D5F2 /* TaskView.swift in Sources */,
 				CA357C1E2A254A1D0019D5F2 /* ContentView.swift in Sources */,
 				CA357C512A2557B30019D5F2 /* AuthenticationViewModel.swift in Sources */,
+				CA39984D2A294AE8001FBB67 /* SignupTransitionText.swift in Sources */,
 				CA357C1C2A254A1D0019D5F2 /* TaskhubApp.swift in Sources */,
 				CA357C412A2553BB0019D5F2 /* NewTaskView.swift in Sources */,
 				CA357C552A2557F40019D5F2 /* LoginViewModel.swift in Sources */,
-				CA357C5E2A255F990019D5F2 /* HeaderView.swift in Sources */,
+				CA3998492A292687001FBB67 /* TimerModel.swift in Sources */,
 				CA357C582A255A730019D5F2 /* CustomInput.swift in Sources */,
 				CA357C652A2580650019D5F2 /* TaskItem.swift in Sources */,
 				CA357C3D2A254F730019D5F2 /* TasksListView.swift in Sources */,
@@ -327,9 +341,11 @@
 				CA357C4E2A2557530019D5F2 /* Router.swift in Sources */,
 				CA357C732A2720830019D5F2 /* TasksListViewModel.swift in Sources */,
 				CA357C6B2A26C0AC0019D5F2 /* Extensions.swift in Sources */,
+				CA39984F2A294CA2001FBB67 /* LoginTransitionText.swift in Sources */,
 				CA357C3B2A254F650019D5F2 /* LoginView.swift in Sources */,
 				CA357C6D2A26C31D0019D5F2 /* UserFirestore.swift in Sources */,
 				CA357C4C2A2557260019D5F2 /* AuthCryptoService.swift in Sources */,
+				CA3998472A288544001FBB67 /* AuthTransitionText.swift in Sources */,
 				CA357C622A2562130019D5F2 /* HomeView.swift in Sources */,
 				CA357C372A254F460019D5F2 /* AuthenticationView.swift in Sources */,
 			);

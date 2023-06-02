@@ -19,18 +19,31 @@ struct TasksListView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                List(tasks) { task in
-                    TaskView(task: task)
-                        .swipeActions {
-                            Button("Delete") {
-                                // Delete
-                                viewModel.delete(id: task.id)
+            List {
+                Section(header: Text("Tasks in Progress")) {
+                    ForEach(tasks, id: \.id) { task in
+                        TaskView(task: task)
+                            .swipeActions {
+                                Button("Delete") {
+                                    // Delete
+                                    viewModel.delete(id: task.id)
+                                }
+                                .tint(.red)
                             }
-                            .tint(.red)
-                        }
+                    }
                 }
-                .listStyle(PlainListStyle())
+                Section(header: Text("Completed Tasks")) {
+                    ForEach(tasks, id: \.id) { task in
+                        TaskView(task: task)
+                            .swipeActions {
+                                Button("Delete") {
+                                    // Delete
+                                    viewModel.delete(id: task.id)
+                                }
+                                .tint(.red)
+                            }
+                    }
+                }
             }
             .navigationTitle("Tasks")
             .toolbar {
@@ -49,6 +62,6 @@ struct TasksListView: View {
 
 struct TasksListView_Previews: PreviewProvider {
     static var previews: some View {
-        TasksListView(userId: "gbx0bIy3Poa0XxBfNCEJoofwhWv1")
+        TasksListView(userId: "avDG0EoPQGdxx6TZ9vXLxETtU0N2")
     }
 }

@@ -20,22 +20,18 @@ struct AuthenticationView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                RoundedRectangle(cornerRadius: 0)
-                    .foregroundColor(Color(red: 0, green: 0.3294, blue: 0.3294))
-                
+                BackgroundView()
                 VStack {
-
                     Spacer()
-                    HeaderView(title: "Taskhub", subtitle: "Get things done",  titleColor: Color(red: 1, green: 0.7961, blue: 0.5412))
+                    AuthTransitionText()
+                        .padding(.top, 48)
                     Spacer()
                     
                     ZStack(alignment: .bottom) {
                         RoundedRectangle(cornerRadius: 36, style: .continuous)
                             .foregroundColor(.black)
-                            .opacity(0.3)
                         
                         VStack(spacing: 0) {
-
                             // Continue with Apple Button
                             Button {
                                 Task {
@@ -108,7 +104,7 @@ struct AuthenticationView: View {
                             } label: {
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                        .foregroundColor(.black)
+                                        .foregroundColor(Color(red: 0.1725, green: 0.1725, blue: 0.1804))
                                     HStack {
                                         Text("Log in")
                                     }
@@ -143,7 +139,6 @@ struct AuthenticationView: View {
             .sheet(isPresented: $isLoginViewShown) {
                 LoginView()
             }
-            
         }
     }
 }
