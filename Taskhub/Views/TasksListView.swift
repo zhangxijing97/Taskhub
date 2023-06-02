@@ -14,14 +14,18 @@ struct TasksListView: View {
     
     init(userId: String) {
         self._tasks = FirestoreQuery(collectionPath: "users/\(userId)/tasks")
+        // initializes the userId pass from HomeView to viewModel
         self._viewModel = StateObject(wrappedValue: TasksListViewModel(userId: userId))
     }
     
     var body: some View {
         NavigationView {
             List {
-                Section(header: Text("Tasks in Progress")) {
-                    ForEach(tasks, id: \.id) { task in
+                Section {
+                    // Uncompleted Tasks
+                    let uncompletedTasks = viewModel.filterUncompletedTasks(tasks: tasks)
+                    let sortedUncompletedTasks = viewModel.sortTasksByDueDate(tasks: uncompletedTasks)
+                    ForEach(sortedUncompletedTasks, id: \.id) { task in
                         TaskView(task: task)
                             .swipeActions {
                                 Button("Delete") {
@@ -31,9 +35,10 @@ struct TasksListView: View {
                                 .tint(.red)
                             }
                     }
-                }
-                Section(header: Text("Completed Tasks")) {
-                    ForEach(tasks, id: \.id) { task in
+                    // Completed Tasks
+                    let completedTasks = viewModel.filterCompletedTasks(tasks: tasks)
+                    let sortedCompletedTasks = viewModel.sortTasksByDueDate(tasks: completedTasks)
+                    ForEach(sortedCompletedTasks, id: \.id) { task in
                         TaskView(task: task)
                             .swipeActions {
                                 Button("Delete") {

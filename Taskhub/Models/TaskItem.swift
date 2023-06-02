@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TaskItem: Codable, Identifiable {
+struct TaskItem: Codable, Identifiable, Equatable {
     let id: String
     let title: String
     let dueDate: TimeInterval

@@ -56,34 +56,38 @@ struct ProfileView: View {
                 
                 // Info
                 Section {
-                    HStack(spacing: 16) {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 7, style: .continuous)
-                                .foregroundColor(.blue)
-                            Image(systemName: "envelope.fill")
-                                .foregroundColor(.white)
+                    NavigationLink(destination: ProfileDetailView()) {
+                        HStack(spacing: 16) {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 7, style: .continuous)
+                                    .foregroundColor(.blue)
+                                Image(systemName: "envelope.fill")
+                                    .foregroundColor(.white)
+                            }
+                            .frame(width: 29, height: 29)
+                            
+                            Text(authStore.user?.email ?? "Loading")
+                                .lineLimit(1)
+                                .truncationMode(.tail)
                         }
-                        .frame(width: 29, height: 29)
-                        
-                        Text(authStore.user?.email ?? "Loading")
-                            .lineLimit(1)
-                            .truncationMode(.tail)
                     }
                     
-                    HStack(spacing: 16) {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 7, style: .continuous)
-                                .foregroundColor(.green)
-                            Text("UID")
-                                .font(.system(size: 13))
-                                .bold()
-                                .foregroundColor(.white)
+                    NavigationLink(destination: ProfileDetailView()) {
+                        HStack(spacing: 16) {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 7, style: .continuous)
+                                    .foregroundColor(.green)
+                                Text("UID")
+                                    .font(.system(size: 13))
+                                    .bold()
+                                    .foregroundColor(.white)
+                            }
+                            .frame(width: 29, height: 29)
+                            
+                            Text(authStore.user?.id.uppercased() ?? "Loading")
+                                .lineLimit(1)
+                                .truncationMode(.tail)
                         }
-                        .frame(width: 29, height: 29)
-
-                        Text(authStore.user?.id.uppercased() ?? "Loading")
-                            .lineLimit(1)
-                            .truncationMode(.tail)
                     }
                 }
 
