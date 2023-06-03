@@ -12,6 +12,10 @@ struct TasksListView: View {
     @StateObject var viewModel: TasksListViewModel
     @FirestoreQuery var tasks: [TaskItem]
     
+    @State private var displayMode = "Priority"
+    let displayModes = ["Priority", "Created Date", "Default"]
+    @State private var searchText = "" // Search code part I
+    
     init(userId: String) {
         self._tasks = FirestoreQuery(collectionPath: "users/\(userId)/tasks")
         // initializes the userId pass from HomeView to viewModel
@@ -20,34 +24,20 @@ struct TasksListView: View {
     
     var body: some View {
         NavigationView {
+            
             List {
-                Section {
-                    // Uncompleted Tasks
-                    let uncompletedTasks = viewModel.filterUncompletedTasks(tasks: tasks)
-                    let sortedUncompletedTasks = viewModel.sortTasksByDueDate(tasks: uncompletedTasks)
-                    ForEach(sortedUncompletedTasks, id: \.id) { task in
-                        TaskView(task: task)
-                            .swipeActions {
-                                Button("Delete") {
-                                    // Delete
-                                    viewModel.delete(id: task.id)
-                                }
-                                .tint(.red)
-                            }
+                Picker("Display Mode", selection: $displayMode) {
+                    ForEach(displayModes, id: \.self) { displayMode in
+                        Text(displayMode)
                     }
-                    // Completed Tasks
-                    let completedTasks = viewModel.filterCompletedTasks(tasks: tasks)
-                    let sortedCompletedTasks = viewModel.sortTasksByDueDate(tasks: completedTasks)
-                    ForEach(sortedCompletedTasks, id: \.id) { task in
-                        TaskView(task: task)
-                            .swipeActions {
-                                Button("Delete") {
-                                    // Delete
-                                    viewModel.delete(id: task.id)
-                                }
-                                .tint(.red)
-                            }
-                    }
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                if displayMode == "Priority" {
+                    PriorityView(viewModel: viewModel, tasks: searchResults)
+                } else if displayMode == "Created Date" {
+                    CreatedDateView(viewModel: viewModel, tasks: searchResults)
+                } else {
+                    DefaultView(viewModel: viewModel, tasks: searchResults)
                 }
             }
             .navigationTitle("Tasks")
@@ -61,6 +51,20 @@ struct TasksListView: View {
             .sheet(isPresented: $viewModel.showingNewTaskView) {
                 NewTaskView(newTaskPresented: $viewModel.showingNewTaskView)
             }
+        }
+        .searchable(text: $searchText)
+    }
+    
+    var searchResults: [TaskItem] { // Search code part III
+        if searchText.isEmpty {
+            return tasks
+        } else {
+            return tasks.filter {
+                $0.title.localizedCaseInsensitiveContains(searchText) ||
+                Date(timeIntervalSince1970: $0.dueDate).formatted(date: .abbreviated, time: .shortened).localizedCaseInsensitiveContains(searchText) ||
+                Date(timeIntervalSince1970: $0.createdDate).formatted(date: .abbreviated, time: .shortened).localizedCaseInsensitiveContains(searchText)
+            }
+
         }
     }
 }

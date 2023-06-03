@@ -13,11 +13,6 @@ struct LoginTransitionText: View {
     @State private var textIndex = 0
     
     private let texts = [
-//        HStack {
-//            Text("")
-//            Image(systemName: "circle.fill")
-//            Text("")
-//        },
         HStack {
             Text("")
             Image(systemName: "circle.fill")
