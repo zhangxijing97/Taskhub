@@ -17,7 +17,7 @@ struct CreatedDateView: View {
         
         ForEach(createdDates, id: \.self) { createdDate in
             
-            Section(header: Text(createdDate)) {
+            Section(header: Text("Created: \(createdDate)")) {
                 // Get all tasks for the DueDate
                 let tasksForCreatedDate = viewModel.tasksForCreatedDate(tasks: tasks, createdDate: createdDate)
                 

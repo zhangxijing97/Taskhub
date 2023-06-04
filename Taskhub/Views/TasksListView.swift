@@ -24,7 +24,6 @@ struct TasksListView: View {
     
     var body: some View {
         NavigationView {
-            
             List {
                 Picker("Display Mode", selection: $displayMode) {
                     ForEach(displayModes, id: \.self) { displayMode in

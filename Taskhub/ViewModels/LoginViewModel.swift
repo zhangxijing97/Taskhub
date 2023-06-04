@@ -15,6 +15,7 @@ class LoginViewViewModel: ObservableObject {
     @Published var alertMessage = ""
     @Published var isAlertShowing = false
     @Published var isButtonLoading = false
+    
     var isButtonDisabled: Bool {
         return isButtonLoading || email.isEmpty || password.isEmpty
     }

@@ -31,7 +31,6 @@
 		CA357C552A2557F40019D5F2 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA357C542A2557F40019D5F2 /* LoginViewModel.swift */; };
 		CA357C582A255A730019D5F2 /* CustomInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA357C572A255A730019D5F2 /* CustomInput.swift */; };
 		CA357C5A2A255AD60019D5F2 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA357C592A255AD60019D5F2 /* CustomButton.swift */; };
-		CA357C5C2A255AF20019D5F2 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA357C5B2A255AF20019D5F2 /* Header.swift */; };
 		CA357C602A255FAC0019D5F2 /* THButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA357C5F2A255FAC0019D5F2 /* THButton.swift */; };
 		CA357C622A2562130019D5F2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA357C612A2562130019D5F2 /* HomeView.swift */; };
 		CA357C652A2580650019D5F2 /* TaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA357C642A2580650019D5F2 /* TaskItem.swift */; };
@@ -51,6 +50,7 @@
 		CA619C322A2AC63900FEEFCD /* PriorityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA619C312A2AC63900FEEFCD /* PriorityView.swift */; };
 		CA619C342A2AC66800FEEFCD /* CreatedDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA619C332A2AC66800FEEFCD /* CreatedDateView.swift */; };
 		CA619C362A2AC68000FEEFCD /* DefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA619C352A2AC68000FEEFCD /* DefaultView.swift */; };
+		CA72E5F22A2C8D7700ACD275 /* NewTaskTransitionText.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA72E5F12A2C8D7700ACD275 /* NewTaskTransitionText.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,7 +77,6 @@
 		CA357C542A2557F40019D5F2 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CA357C572A255A730019D5F2 /* CustomInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInput.swift; sourceTree = "<group>"; };
 		CA357C592A255AD60019D5F2 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
-		CA357C5B2A255AF20019D5F2 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		CA357C5F2A255FAC0019D5F2 /* THButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THButton.swift; sourceTree = "<group>"; };
 		CA357C612A2562130019D5F2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CA357C632A2565CA0019D5F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -96,6 +95,7 @@
 		CA619C312A2AC63900FEEFCD /* PriorityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityView.swift; sourceTree = "<group>"; };
 		CA619C332A2AC66800FEEFCD /* CreatedDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatedDateView.swift; sourceTree = "<group>"; };
 		CA619C352A2AC68000FEEFCD /* DefaultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultView.swift; sourceTree = "<group>"; };
+		CA72E5F12A2C8D7700ACD275 /* NewTaskTransitionText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskTransitionText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,10 +218,10 @@
 				CA3998462A288544001FBB67 /* AuthTransitionText.swift */,
 				CA39984C2A294AE8001FBB67 /* SignupTransitionText.swift */,
 				CA39984E2A294CA2001FBB67 /* LoginTransitionText.swift */,
+				CA72E5F12A2C8D7700ACD275 /* NewTaskTransitionText.swift */,
 				CA39984A2A29409A001FBB67 /* BackgroundView.swift */,
 				CA357C572A255A730019D5F2 /* CustomInput.swift */,
 				CA357C592A255AD60019D5F2 /* CustomButton.swift */,
-				CA357C5B2A255AF20019D5F2 /* Header.swift */,
 				CA357C5F2A255FAC0019D5F2 /* THButton.swift */,
 			);
 			path = Components;
@@ -324,11 +324,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA357C5C2A255AF20019D5F2 /* Header.swift in Sources */,
 				CA357C772A27229B0019D5F2 /* NewTaskViewModel.swift in Sources */,
 				CA357C752A27213C0019D5F2 /* TaskViewModel.swift in Sources */,
 				CA357C602A255FAC0019D5F2 /* THButton.swift in Sources */,
 				CA619C322A2AC63900FEEFCD /* PriorityView.swift in Sources */,
+				CA72E5F22A2C8D7700ACD275 /* NewTaskTransitionText.swift in Sources */,
 				CA357C392A254F520019D5F2 /* SignupView.swift in Sources */,
 				CA357C5A2A255AD60019D5F2 /* CustomButton.swift in Sources */,
 				CA357C4A2A2556B00019D5F2 /* AuthStore.swift in Sources */,

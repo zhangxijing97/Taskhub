@@ -11,29 +11,27 @@ struct NewTaskView: View {
     @StateObject var viewModel = NewTaskViewModel()
     @Binding var newTaskPresented: Bool
     
+    // Default time to 10 AM
+    @State private var selectedDate = Calendar.current.date(bySettingHour: 10, minute: 0, second: 0, of: Date()) ?? Date()
+    
     var body: some View {
         VStack {
-            Text("New Task")
-                .font(.system(size: 32))
-                .bold()
-                .padding(.top, 100)
+            NewTaskTransitionText()
             
-            Form {
-                TextField("Title", text: $viewModel.title)
-                    .textFieldStyle(DefaultTextFieldStyle())
-                
-                DatePicker("Due Date", selection: $viewModel.dueDate)
-                    .datePickerStyle(GraphicalDatePickerStyle())
-                
-                THButton(title: "Save", background: .pink) {
-                    if viewModel.canSave {
-                        viewModel.save()
-                        newTaskPresented = false
-                    } else {
-                        viewModel.showAlert = true
-                    }
+            TextField("Enter Task Title", text: $viewModel.title)
+                .textFieldStyle(DefaultTextFieldStyle())
+            
+            DatePicker("Due Date", selection: $selectedDate)
+                .datePickerStyle(GraphicalDatePickerStyle())
+            
+            THButton(title: "Save", background: .pink) {
+                if viewModel.canSave {
+                    viewModel.dueDate = selectedDate // Default time to 10 AM
+                    viewModel.save()
+                    newTaskPresented = false
+                } else {
+                    viewModel.showAlert = true
                 }
-                .padding()
             }
             .alert(isPresented: $viewModel.showAlert) {
                 Alert(title: Text("Error"),
@@ -41,6 +39,7 @@ struct NewTaskView: View {
                 )
             }
         }
+        .padding(24)
     }
 }
 

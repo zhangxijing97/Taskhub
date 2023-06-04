@@ -15,6 +15,29 @@ struct AuthTransitionText: View {
     @State private var colorIndex = 0
     
     private let texts = [
+        // 0
+        HStack {
+            Text("")
+            Image(systemName: "circle.fill")
+            Text("")
+        },
+        HStack {
+            Text("")
+            Image(systemName: "circle.fill")
+            Text("Taskhub")
+        },
+        HStack {
+            Text("")
+            Image(systemName: "checkmark.circle.fill")
+            Text("Taskhub")
+        },
+        HStack {
+            Text("")
+            Image(systemName: "checkmark.circle.fill")
+            Text("")
+        },
+        
+        // 1
         HStack {
             Text("")
             Image(systemName: "circle.fill")
@@ -27,6 +50,18 @@ struct AuthTransitionText: View {
         },
         HStack {
             Text("")
+            Image(systemName: "checkmark.circle.fill")
+            Text("Read chapter one")
+        },
+        HStack {
+            Text("")
+            Image(systemName: "checkmark.circle.fill")
+            Text("")
+        },
+        
+        // 2
+        HStack {
+            Text("")
             Image(systemName: "circle.fill")
             Text("")
         },
@@ -35,6 +70,18 @@ struct AuthTransitionText: View {
             Image(systemName: "circle.fill")
             Text("Write the blog")
         },
+        HStack {
+            Text("")
+            Image(systemName: "checkmark.circle.fill")
+            Text("Write the blog")
+        },
+        HStack {
+            Text("")
+            Image(systemName: "checkmark.circle.fill")
+            Text("")
+        },
+        
+        // 3
         HStack {
             Text("")
             Image(systemName: "circle.fill")
@@ -47,6 +94,18 @@ struct AuthTransitionText: View {
         },
         HStack {
             Text("")
+            Image(systemName: "checkmark.circle.fill")
+            Text("Donate unused items")
+        },
+        HStack {
+            Text("")
+            Image(systemName: "checkmark.circle.fill")
+            Text("")
+        },
+        
+        // 4
+        HStack {
+            Text("")
             Image(systemName: "circle.fill")
             Text("")
         },
@@ -55,6 +114,18 @@ struct AuthTransitionText: View {
             Image(systemName: "circle.fill")
             Text("Plan the weekend")
         },
+        HStack {
+            Text("")
+            Image(systemName: "checkmark.circle.fill")
+            Text("Plan the weekend")
+        },
+        HStack {
+            Text("")
+            Image(systemName: "checkmark.circle.fill")
+            Text("")
+        },
+        
+        // 5
         HStack {
             Text("")
             Image(systemName: "circle.fill")
@@ -67,6 +138,18 @@ struct AuthTransitionText: View {
         },
         HStack {
             Text("")
+            Image(systemName: "checkmark.circle.fill")
+            Text("Learn a new recipe")
+        },
+        HStack {
+            Text("")
+            Image(systemName: "checkmark.circle.fill")
+            Text("")
+        },
+        
+        // 6
+        HStack {
+            Text("")
             Image(systemName: "circle.fill")
             Text("")
         },
@@ -75,6 +158,18 @@ struct AuthTransitionText: View {
             Image(systemName: "circle.fill")
             Text("Yoga")
         },
+        HStack {
+            Text("")
+            Image(systemName: "checkmark.circle.fill")
+            Text("Yoga")
+        },
+        HStack {
+            Text("")
+            Image(systemName: "checkmark.circle.fill")
+            Text("")
+        },
+        
+        // 7
         HStack {
             Text("")
             Image(systemName: "circle.fill")
@@ -87,6 +182,18 @@ struct AuthTransitionText: View {
         },
         HStack {
             Text("")
+            Image(systemName: "checkmark.circle.fill")
+            Text("Start a journal")
+        },
+        HStack {
+            Text("")
+            Image(systemName: "checkmark.circle.fill")
+            Text("")
+        },
+        
+        // 8
+        HStack {
+            Text("")
             Image(systemName: "circle.fill")
             Text("")
         },
@@ -97,6 +204,18 @@ struct AuthTransitionText: View {
         },
         HStack {
             Text("")
+            Image(systemName: "checkmark.circle.fill")
+            Text("Calculus homework")
+        },
+        HStack {
+            Text("")
+            Image(systemName: "checkmark.circle.fill")
+            Text("")
+        },
+        
+        // 9
+        HStack {
+            Text("")
             Image(systemName: "circle.fill")
             Text("")
         },
@@ -104,7 +223,18 @@ struct AuthTransitionText: View {
             Text("")
             Image(systemName: "circle.fill")
             Text("Attendance app")
+        },
+        HStack {
+            Text("")
+            Image(systemName: "checkmark.circle.fill")
+            Text("Attendance app")
+        },
+        HStack {
+            Text("")
+            Image(systemName: "checkmark.circle.fill")
+            Text("")
         }
+        
     ]
     
     private let colors = [
@@ -126,7 +256,7 @@ struct AuthTransitionText: View {
             .transition(.opacity)
             .onReceive(timerModel.textTimer) { _ in
                 withAnimation(.default) {
-                    if textIndex >= 17 { // Back to 0
+                    if textIndex >= 35 { // Back to 0
                         textIndex = 0
                     } else {
                         textIndex = (textIndex + 1) % texts.count

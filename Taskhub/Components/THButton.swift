@@ -18,13 +18,18 @@ struct THButton: View {
             action()
         } label: {
             ZStack {
-                RoundedRectangle(cornerRadius: 10)
+                RoundedRectangle(cornerRadius: 12, style: .continuous)
                     .foregroundColor(background)
-                Text(title)
+                HStack {
+                    Text(title)
+                }
                     .foregroundColor(Color.white)
                     .bold()
             }
         }
+        .frame(maxWidth: .infinity)
+        .frame(height: 48)
+        
     }
 }
 

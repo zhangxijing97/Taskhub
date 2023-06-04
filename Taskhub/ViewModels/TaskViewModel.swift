@@ -42,7 +42,25 @@ class TaskViewModel: ObservableObject {
             .delete()
     }
     
-    // Push due date for one day
+    // Update title
+    func updateTitle(task: TaskItem, newTitle: String) {
+        var taskCopy = task
+        
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        
+        taskCopy.title = newTitle
+        
+        let db = Firestore.firestore()
+        db.collection("users")
+            .document(uid)
+            .collection("tasks")
+            .document(taskCopy.id)
+            .setData(taskCopy.asDictionary())
+    }
+    
+    // Push due date
     func pushDueOneDay(task: TaskItem) {
         var taskCopy = task
         taskCopy.dueDate = task.dueDate

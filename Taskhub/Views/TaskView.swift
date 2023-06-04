@@ -14,18 +14,49 @@ struct TaskView: View {
     let task: TaskItem
     @State private var showActionSheet = false
     
+    // Variables for edit title
+    @State private var editingTitle = false
+    @State private var newTitle = ""
+    @FocusState private var showKeyboard: Bool
+    
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 4) {
-                Text(task.title)
-                    .font(.headline)
-                    .foregroundColor(.primary)
-                
+                if editingTitle == false {
+                    Text(task.title)
+                        .font(.headline)
+                        .foregroundColor(titleColor)
+                        .lineLimit(1)
+                        .strikethrough(task.isDone, pattern: .solid, color: .secondary)
+                        .frame(height: 22)
+                } else {
+                    TextField("Title", text: $newTitle)
+                        .font(.headline)
+                        .foregroundColor(titleColor)
+                        .lineLimit(1)
+                        .frame(height: 22)
+                        .focused($showKeyboard)
+                        .onAppear {
+                            showKeyboard = true
+                        }
+                        .onSubmit {
+                            viewModel.updateTitle(task: task, newTitle: newTitle)
+                            editingTitle = false
+                            newTitle = ""
+                        }
+                }
                 Text("Due: \(formattedDueDate)")
                     .font(.subheadline)
                     .foregroundColor(dueDateColor)
             }
+            .onTapGesture {
+                editingTitle = true
+                newTitle = task.title
+                showKeyboard = true
+            }
+            
             Spacer()
+            
             Button {
                 // Update
                 viewModel.toggleIsDone(task: task)
@@ -69,10 +100,7 @@ struct TaskView: View {
                     ]
                 )
             }
-            
-            
         }
-        
     }
     
     private var formattedDueDate: String {
@@ -82,13 +110,24 @@ struct TaskView: View {
         return formatter.string(from: Date(timeIntervalSince1970: task.dueDate))
     }
     
+    private var titleColor: Color {
+        if task.isDone {
+            return .secondary
+        } else {
+            return .primary
+        }
+    }
+    
     private var dueDateColor: Color {
         if task.dueDate < Date().timeIntervalSince1970 && !task.isDone {
             return .red
+        } else if task.dueDate < Date().timeIntervalSince1970 + 24 * 60 * 60 && !task.isDone { // DueDate is less than one day
+            return .secondary
         } else {
             return .secondary
         }
     }
+    
 }
 
 struct TaskView_Previews: PreviewProvider {

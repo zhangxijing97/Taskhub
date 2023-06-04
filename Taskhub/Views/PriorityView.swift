@@ -16,8 +16,9 @@ struct PriorityView: View {
         let dueDates = viewModel.getDueDates(tasks: sortedTasks)
         
         ForEach(dueDates, id: \.self) { dueDate in
+            let today = Date().formatted(date: .abbreviated, time: .omitted)as String
             
-            Section(header: Text(dueDate)) {
+            Section(header: Text("Due: \(dueDate)")) {
                 // Get all tasks for the DueDate
                 let tasksForDueDate = viewModel.tasksForDueDate(tasks: tasks, dueDate: dueDate)
                 
@@ -35,7 +36,6 @@ struct PriorityView: View {
                     TaskView(userId: viewModel.userId, task: task)
                 }
             }
-            
         }
     }
 }
