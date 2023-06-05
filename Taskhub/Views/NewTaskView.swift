@@ -24,7 +24,7 @@ struct NewTaskView: View {
             DatePicker("Due Date", selection: $selectedDate)
                 .datePickerStyle(GraphicalDatePickerStyle())
             
-            THButton(title: "Save", background: .pink) {
+            THButton(title: "Create Task", background: .pink) {
                 if viewModel.canSave {
                     viewModel.dueDate = selectedDate // Default time to 10 AM
                     viewModel.save()

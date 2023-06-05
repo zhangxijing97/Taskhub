@@ -120,7 +120,7 @@ struct TaskView: View {
     
     private var dueDateColor: Color {
         if task.dueDate < Date().timeIntervalSince1970 && !task.isDone {
-            return .red
+            return .orange
         } else if task.dueDate < Date().timeIntervalSince1970 + 24 * 60 * 60 && !task.isDone { // DueDate is less than one day
             return .secondary
         } else {
