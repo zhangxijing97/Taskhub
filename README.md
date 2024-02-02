@@ -46,7 +46,3 @@ If you're interested in contributing to the development of TaskHub, please read 
 ## License
 
 TaskHub is available under the [MIT License](LICENSE). See the LICENSE file for more info.
-
----
-
-**Note**: Replace placeholders like `link-to-banner-image-if-available`, `link-to-app-store-badge`, `link-to-screenshot`, and `link-to-contributing-file` with actual links to your resources. Adjust the feature list, installation instructions, and other details according to your app's functionality and requirements.
